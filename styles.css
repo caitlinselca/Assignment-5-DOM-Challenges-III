@@ -1,14 +1,21 @@
-td { 
-    border: 1px solid white; 
+td {
+    border: 1px solid white;
     height: 40px;
     width: 40px;
 }
 
-h3 {
-    font: 24px copperplate;
+h1, h2, h3 {
     color: blueviolet;
     text-align: center;
     background-color: white;
+}
+
+h3 {
+    font: 24px copperplate;
+}
+
+#main-grid{
+    margin: 0 auto;
 }
 
 body {
