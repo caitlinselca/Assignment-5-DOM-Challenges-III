@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
 
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
 
     <h1>Color Game</h1>
 
@@ -32,12 +31,21 @@
 
     <br>
     <br>
+
+    <button onclick="fillUncolored()">Fill Uncolored</button>
+    <button onclick="fillAll()">Fill All</button>
+    <button onclick="clear()">Clear</button>
+
+    <br>
+    <br>
     <br>
 
     <table id="main-grid">
       <tr>
-
+        <td id="first"></td>
       </tr>
     </table>
+
+    <script src="script.js"></script>
   </body>
 </html>
