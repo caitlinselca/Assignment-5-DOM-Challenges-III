@@ -80,7 +80,16 @@ function fillUncolored() {
   }
 }
 
-function fillAll() {}
+function fillAll() {
+  var color = document.getElementById("colors");
+  var valofCol = color.options[color.selectedIndex].value;
+
+  let cells = document.querySelectorAll("td");
+  for (let i = 0; i < cells.length; i++) {
+    cells[i].style.backgroundColor = valofCol;
+  }
+}
+
 function clear() {}
 
 function startUp() {
