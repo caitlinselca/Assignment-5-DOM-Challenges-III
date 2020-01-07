@@ -2,13 +2,14 @@ let amountOfRows = 1;
 let amountOfColumns = 1;
 var mouseStatus = false;
 
-
-//selects specific color from drop-down box
+//selects specific color
 
 function selectColor() {
   var color = document.getElementById("colors").value;
   document.getElementById("main-grid").style.color = color;
 }
+
+//hovers over cells and changes color
 
 function cellListeners(cell){
   cell.onclick = function() {
@@ -34,19 +35,16 @@ function cellListeners(cell){
     });
 }
 
-//add rows to the grid
+//adds rows to grid
 
 function addRow() {
   let mainGrid = document.getElementById("main-grid");
   let newRow = document.createElement("tr");
 
   for (let i = 0; i < amountOfColumns; i++) {
-    let cell = document.createElement("td");
-    cell.onclick = function() {
-      var color = document.getElementById("colors");
-      var valofCol = color.options[color.selectedIndex].value;
-      this.style.backgroundColor = valofCol;
-    };
+    var cell = document.createElement("td");
+    
+    cellListeners(cell);
     newRow.appendChild(cell);
   }
 
@@ -54,7 +52,7 @@ function addRow() {
   amountOfRows++;
 }
 
-//add columns to the grid
+//adds columns to grid
 
 function addColumn() {
   let mainGrid = document.getElementById("main-grid");
@@ -62,18 +60,15 @@ function addColumn() {
   for (let i = 0; i < amountOfRows; i++) {
     let row = mainGrid.rows[i];
     let cell = document.createElement("td");
-    cell.onclick = function() {
-      var color = document.getElementById("colors");
-      var valofCol = color.options[color.selectedIndex].value;
-      this.style.backgroundColor = valofCol;
-    };
+    
+    cellListeners(cell);
     row.appendChild(cell);
   }
 
   amountOfColumns++;
 }
 
-//removes rows from the grid
+//removes rows from grid
 
 function removeRow() {
   if (amountOfRows === 0) {
@@ -85,7 +80,7 @@ function removeRow() {
   amountOfRows--;
 }
 
-//removes columns from the grid
+//emoves columns from grid
 
 function removeColumn() {
   if (amountOfColumns === 0) {
@@ -102,7 +97,7 @@ function removeColumn() {
   amountOfColumns--;
 }
 
-//fill all uncolored cells with the currently selected color
+//fill uncolored cells
 
 function fillUncolored() {
   var color = document.getElementById("colors");
@@ -116,7 +111,7 @@ function fillUncolored() {
   }
 }
 
-//fill all cells with the currently selected color
+//fill all cells
 
 function fillAll() {
   var color = document.getElementById("colors");
@@ -128,7 +123,7 @@ function fillAll() {
   }
 }
 
-//clear all cells/restore all cells to their original/initial color
+//clear
 
 function clearAll() {
   let cells = document.querySelectorAll("td");
