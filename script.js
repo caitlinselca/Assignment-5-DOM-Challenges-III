@@ -2,6 +2,7 @@
 
 let amountOfRows = 1;
 let amountOfColumns = 1;
+var mouseStatus = false;
 
 function selectColor() {
   var color = document.getElementById("colors").value;
@@ -14,11 +15,29 @@ function addRow() {
 
   for (let i = 0; i < amountOfColumns; i++) {
     let cell = document.createElement("td");
+    
     cell.onclick = function() {
       var color = document.getElementById("colors");
       var valofCol = color.options[color.selectedIndex].value;
       this.style.backgroundColor = valofCol;
     };
+    
+    cell.addEventListener("mousedown", function() {
+        mouseStatus = true;
+    });
+    
+    cell.addEventListener("mouseup", function() {
+        mouseStatus = false;
+    });
+    
+    cell.addEventListener("onmouseover", function() {
+        if(mouseStatus){
+          var color = document.getElementById("colors");
+          var valofCol = color.options[color.selectedIndex].value;
+          this.style.backgroundColor = valofCol;
+        }
+    });
+    
     newRow.appendChild(cell);
   }
 
@@ -32,11 +51,28 @@ function addColumn() {
   for (let i = 0; i < amountOfRows; i++) {
     let row = mainGrid.rows[i];
     let cell = document.createElement("td");
+    
     cell.onclick = function() {
       var color = document.getElementById("colors");
       var valofCol = color.options[color.selectedIndex].value;
       this.style.backgroundColor = valofCol;
     };
+    
+    cell.addEventListener("mousedown", function() {
+        mouseStatus = true;
+    });
+    
+    cell.addEventListener("mouseup", function() {
+        mouseStatus = false;
+    });
+    
+    cell.addEventListener("onmouseover", function() {
+        if(mouseStatus){
+          var color = document.getElementById("colors");
+          var valofCol = color.options[color.selectedIndex].value;
+          this.style.backgroundColor = valofCol;
+        }
+    });
     row.appendChild(cell);
   }
 
