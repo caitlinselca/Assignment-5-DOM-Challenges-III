@@ -1,13 +1,37 @@
 let amountOfRows = 1;
 let amountOfColumns = 1;
-
-var color = document.getElementById("colors").value;
+var mouseStatus = false;
 
 
 //selects specific color from drop-down box
 
 function selectColor() {
+  var color = document.getElementById("colors").value;
   document.getElementById("main-grid").style.color = color;
+}
+
+function cellListeners(cell){
+  cell.onclick = function() {
+    var color = document.getElementById("colors");
+    var valofCol = color.options[color.selectedIndex].value;
+    this.style.backgroundColor = valofCol;
+  };
+  
+  cell.addEventListener("mousedown", function() {
+        mouseStatus = true;
+    });
+    
+  cell.addEventListener("mouseup", function() {
+        mouseStatus = false;
+    });
+    
+  cell.addEventListener("mouseover", function() {
+        if(mouseStatus){
+          var color = document.getElementById("colors");
+          var valofCol = color.options[color.selectedIndex].value;
+          this.style.backgroundColor = valofCol;
+        }
+    });
 }
 
 //add rows to the grid
