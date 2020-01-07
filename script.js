@@ -1,12 +1,16 @@
-//I want to write a function that will add a row to the grid
-
 let amountOfRows = 1;
 let amountOfColumns = 1;
 
+var color = document.getElementById("colors").value;
+
+
+//selects specific color from drop-down box
+
 function selectColor() {
-  var color = document.getElementById("colors").value;
   document.getElementById("main-grid").style.color = color;
 }
+
+//add rows to the grid
 
 function addRow() {
   let mainGrid = document.getElementById("main-grid");
@@ -26,6 +30,8 @@ function addRow() {
   amountOfRows++;
 }
 
+//add columns to the grid
+
 function addColumn() {
   let mainGrid = document.getElementById("main-grid");
 
@@ -43,6 +49,8 @@ function addColumn() {
   amountOfColumns++;
 }
 
+//removes rows from the grid
+
 function removeRow() {
   if (amountOfRows === 0) {
     return;
@@ -52,6 +60,8 @@ function removeRow() {
   mainGrid.deleteRow(0);
   amountOfRows--;
 }
+
+//removes columns from the grid
 
 function removeColumn() {
   if (amountOfColumns === 0) {
@@ -68,6 +78,8 @@ function removeColumn() {
   amountOfColumns--;
 }
 
+//fill all uncolored cells with the currently selected color
+
 function fillUncolored() {
   var color = document.getElementById("colors");
   var valofCol = color.options[color.selectedIndex].value;
@@ -80,6 +92,8 @@ function fillUncolored() {
   }
 }
 
+//fill all cells with the currently selected color
+
 function fillAll() {
   var color = document.getElementById("colors");
   var valofCol = color.options[color.selectedIndex].value;
@@ -90,20 +104,11 @@ function fillAll() {
   }
 }
 
+//clear all cells/restore all cells to their original/initial color
+
 function clearAll() {
   let cells = document.querySelectorAll("td");
   for (let i = 0; i < cells.length; i++) {
     cells[i].style.backgroundColor = "";
   }
 }
-
-function startUp() {
-  let cell = document.getElementById("first");
-  cell.onclick = function() {
-    var color = document.getElementById("colors");
-    var valofCol = color.options[color.selectedIndex].value;
-    this.style.backgroundColor = valofCol;
-  };
-}
-
-startUp();
