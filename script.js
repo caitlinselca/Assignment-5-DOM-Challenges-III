@@ -115,11 +115,7 @@ function clearAll() {
 
 function startUp() {
   let cell = document.getElementById("first");
-  cell.onclick = function() {
-    var color = document.getElementById("colors");
-    var valofCol = color.options[color.selectedIndex].value;
-    this.style.backgroundColor = valofCol;
-  };
+  cellListeners(cell);
 }
 
 startUp();
