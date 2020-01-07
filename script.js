@@ -90,7 +90,12 @@ function fillAll() {
   }
 }
 
-function clear() {}
+function clearAll() {
+  let cells = document.querySelectorAll("td");
+  for (let i = 0; i < cells.length; i++) {
+    cells[i].style.backgroundColor = "";
+  }
+}
 
 function startUp() {
   let cell = document.getElementById("first");
