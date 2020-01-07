@@ -3,12 +3,6 @@
 let amountOfRows = 1;
 let amountOfColumns = 1;
 
-function selectColor()
-{ 
-    var color = document.getElementById('colors').value;
-    document.getElementById("main-grid").style.color = color;   
-}
-
 function addRow() {
 
     let mainGrid = document.getElementById("main-grid");
@@ -17,11 +11,6 @@ function addRow() {
     for(let i = 0; i < amountOfColumns; i++)
     {
         let cell = document.createElement("td");
-        cell.onclick = function () {
-            var color = document.getElementById("colors");
-            var valofCol = color.options[color.selectedIndex].value;
-            this.style.backgroundColor = valofCol;
-        }
         newRow.appendChild(cell);
     }
 
@@ -38,11 +27,6 @@ function addColumn() {
     {
         let row = mainGrid.rows[i];
         let cell = document.createElement("td");
-        cell.onclick = function () {
-            var color = document.getElementById("colors");
-            var valofCol = color.options[color.selectedIndex].value;
-            this.style.backgroundColor = valofCol;
-        }
         row.appendChild(cell);
     }
 
