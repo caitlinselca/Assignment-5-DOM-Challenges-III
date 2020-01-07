@@ -1,7 +1,7 @@
 //I want to write a function that will add a row to the grid
 
-let amountOfRows = 0;
-let amountOfColumns = 0;
+let amountOfRows = 1;
+let amountOfColumns = 1;
 
 function selectColor() {
   var color = document.getElementById("colors").value;
@@ -67,3 +67,29 @@ function removeColumn() {
 
   amountOfColumns--;
 }
+
+function fillUncolored() {
+  var color = document.getElementById("colors");
+  var valofCol = color.options[color.selectedIndex].value;
+
+  let cells = document.querySelectorAll("td");
+  for (let i = 0; i < cells.length; i++) {
+    if (cells[i].style.backgroundColor == "") {
+      cells[i].style.backgroundColor = valofCol;
+    }
+  }
+}
+
+function fillAll() {}
+function clear() {}
+
+function startUp() {
+  let cell = document.getElementById("first");
+  cell.onclick = function() {
+    var color = document.getElementById("colors");
+    var valofCol = color.options[color.selectedIndex].value;
+    this.style.backgroundColor = valofCol;
+  };
+}
+
+startUp();
