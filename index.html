@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8">
+
     <link rel="stylesheet" href="styles.css">
     <script src="script.js"></script>
-     
-    <h3>Text Color: 
-    <select id="colors" onchange="selectColor();">
-      <option value="None"></option>
-      <option value="red">Red</option>
-      <option value="green">Green</option>
-      <option value="yellow">Yellow</option>
-      <option value="blue">Blue</option>
-      <option value="pink">Pink</option>
-      <option value="purple">Purple</option>
-      <option value="white">White</option>
-    </select>
+
+    <h1>Color Game</h1>
+
+    <h2>Reminder: Rows and Columns start off at 0 and 0</h2>
+
+    <h3>Text Color:
+      <select id="colors" onchange="selectColor();">
+        <option value="None"></option>
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="yellow">Yellow</option>
+        <option value="blue">Blue</option>
+        <option value="pink">Pink</option>
+        <option value="purple">Purple</option>
+        <option value="white">White</option>
+      </select>
     </h3>
   </head>
   <body>
@@ -24,13 +30,14 @@
     <button onclick="removeRow()">Remove Row</button>
     <button onclick="removeColumn()">Remove Column</button>
 
+    <br>
+    <br>
+    <br>
 
     <table id="main-grid">
-        <tr>
+      <tr>
 
-            <td></td>
-
-        </tr>
+      </tr>
     </table>
-</body>
+  </body>
 </html>
